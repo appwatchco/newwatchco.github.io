@@ -273,6 +273,21 @@
       color: var(--tertiary);
     }
 
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--tertiary);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary);
+    }
+
     /* ── Responsive ────────────────────────────────────── */
     @media (max-width: 480px) {
       .app-card { flex-direction: column; }
@@ -337,6 +352,10 @@
   <!-- Footer -->
   <footer>
     <span class="footer-copy">© <span id="yr"></span> New Watch Co Limited</span>
+    <nav class="footer-links">
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy</a>
+    </nav>
   </footer>
 
   <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
