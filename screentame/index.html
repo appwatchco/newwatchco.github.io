@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScreenTame — Tame your screen. Take back your time.</title>
+  <meta name="description" content="ScreenTame puts a deliberate pause between you and the apps that pull you away. Per-app open limits, focus streaks, goals you set yourself, and accountability with friends. iPhone only. Your data stays on your device." />
+
+  <meta property="og:title" content="ScreenTame — Tame your screen. Take back your time." />
+  <meta property="og:description" content="Per-app open limits, focus streaks, and accountability with friends. Your screen time data never leaves your iPhone." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://newwatchco.com/screentame/" />
+  <meta property="og:image" content="https://newwatchco.com/assets/icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="/assets/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #faf9fe;
+      --surface:   #ffffff;
+      --border:    #e9e6f2;
+      --text:      #14121f;
+      --secondary: #5c5870;
+      --tertiary:  #9a95ad;
+      --brand:     #6852e0;
+      --brand-dk:  #4f35c2;
+      --brand-lt:  #efecfd;
+      --ink:       #171429;
+      --max-w:     980px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(22px, 5vw, 40px); }
+
+    /* ── Nav ───────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(250,249,254,0.85);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      height: 60px;
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 0 clamp(22px, 5vw, 40px);
+      height: 100%; display: flex; align-items: center; gap: 14px;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+    .nav-brand img { width: 26px; height: 26px; border-radius: 7px; }
+    .nav-brand span { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+    .nav-parent {
+      margin-left: auto; font-size: 12px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--tertiary); text-decoration: none;
+    }
+    .nav-parent:hover { color: var(--secondary); }
+
+    /* ── Hero ──────────────────────────────────── */
+    .hero {
+      padding: clamp(56px, 8vw, 96px) 0 clamp(40px, 6vw, 64px);
+      display: grid; grid-template-columns: 1.15fr 1fr;
+      gap: clamp(28px, 5vw, 56px); align-items: center;
+    }
+    .hero-icon {
+      width: 76px; height: 76px; border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(104,82,224,0.28);
+      margin-bottom: 26px; display: block;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 50px); font-weight: 300;
+      line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 20px;
+    }
+    .hero h1 em { font-style: normal; font-weight: 600; }
+    .hero p {
+      font-size: 16.5px; color: var(--secondary);
+      max-width: 440px; line-height: 1.75; margin-bottom: 30px;
+    }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      font-size: 15px; font-weight: 500; text-decoration: none;
+      padding: 13px 24px; border-radius: 12px;
+      transition: opacity .15s, background .15s;
+    }
+    .btn-primary { background: var(--brand); color: #fff; }
+    .btn-primary:hover { opacity: .88; }
+    .btn-ghost { color: var(--secondary); border: 1px solid var(--border); background: var(--surface); }
+    .btn-ghost:hover { background: var(--brand-lt); color: var(--brand); }
+    .status-line {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--secondary); margin-top: 18px;
+    }
+    .dot-amber { width: 6px; height: 6px; border-radius: 50%; background: #f59e0b; }
+
+    /* ── Phone frame ───────────────────────────── */
+    .phone {
+      justify-self: center;
+      width: 100%; max-width: 260px;
+      border-radius: 34px; padding: 8px;
+      background: linear-gradient(160deg, #2b2440 0%, #14121f 100%);
+      box-shadow: 0 24px 60px rgba(20,18,31,0.28);
+    }
+    .phone img { width: 100%; display: block; border-radius: 27px; }
+
+    /* ── Section shell ─────────────────────────── */
+    section.band { padding: clamp(48px, 7vw, 84px) 0; }
+    .band-alt { background: var(--surface); border-block: 1px solid var(--border); }
+    .eyebrow {
+      font-size: 11.5px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--brand); margin-bottom: 12px;
+    }
+    h2.section-title {
+      font-size: clamp(24px, 3.4vw, 33px); font-weight: 300;
+      letter-spacing: -0.025em; line-height: 1.2; margin-bottom: 14px;
+    }
+    h2.section-title em { font-style: normal; font-weight: 600; }
+    .section-lead { font-size: 15.5px; color: var(--secondary); max-width: 560px; margin-bottom: 40px; }
+
+    /* ── Feature grid ──────────────────────────── */
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .feature {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 15px; padding: 26px 24px;
+    }
+    .band-alt .feature { background: var(--bg); }
+    .feature-ico {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: var(--brand-lt); color: var(--brand);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 15px;
+    }
+    .feature h3 { font-size: 15.5px; font-weight: 600; margin-bottom: 7px; letter-spacing: -0.01em; }
+    .feature p { font-size: 14px; color: var(--secondary); line-height: 1.65; }
+
+    /* ── How it works ──────────────────────────── */
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(18px, 3vw, 34px); }
+    .step-num {
+      font-size: 12px; font-weight: 600; color: var(--brand);
+      background: var(--brand-lt); width: 26px; height: 26px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+    }
+    .step h3 { font-size: 16px; font-weight: 600; margin-bottom: 7px; }
+    .step p { font-size: 14px; color: var(--secondary); }
+
+    /* ── Split showcase ────────────────────────── */
+    .split {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: clamp(30px, 6vw, 64px); align-items: center;
+    }
+    .split .phone { max-width: 240px; }
+
+    /* ── Privacy callout ───────────────────────── */
+    .privacy-card {
+      background: linear-gradient(150deg, #221c3d 0%, #14121f 100%);
+      border-radius: 20px; padding: clamp(30px, 5vw, 48px);
+      color: #efecfd;
+    }
+    .privacy-card .eyebrow { color: #b6a6ff; }
+    .privacy-card h2 { font-size: clamp(22px, 3vw, 30px); font-weight: 300; letter-spacing: -0.02em; margin-bottom: 16px; color: #fff; }
+    .privacy-card p { font-size: 15px; color: #c9c3e0; max-width: 620px; margin-bottom: 12px; line-height: 1.7; }
+    .privacy-card a { color: #b6a6ff; }
+    .privacy-list { list-style: none; margin: 20px 0 0; display: grid; gap: 10px; }
+    .privacy-list li { font-size: 14.5px; color: #c9c3e0; display: flex; gap: 11px; align-items: flex-start; }
+    .tick { color: #a78bfa; flex-shrink: 0; margin-top: 3px; }
+
+    /* ── FAQ ───────────────────────────────────── */
+    details {
+      border-bottom: 1px solid var(--border); padding: 18px 0;
+    }
+    details summary {
+      font-size: 15.5px; font-weight: 500; cursor: pointer;
+      list-style: none; display: flex; justify-content: space-between; gap: 16px;
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::after {
+      content: '+'; color: var(--brand); font-size: 19px; font-weight: 400;
+      line-height: 1; flex-shrink: 0;
+    }
+    details[open] summary::after { content: '−'; }
+    details p { font-size: 14.5px; color: var(--secondary); margin-top: 11px; max-width: 640px; }
+
+    /* ── Footer ────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: clamp(28px, 4vw, 40px) 0;
+      margin-top: clamp(40px, 6vw, 72px);
+    }
+    .footer-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 0 clamp(22px, 5vw, 40px);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 14px;
+    }
+    .footer-copy { font-size: 13px; color: var(--tertiary); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 13px; color: var(--tertiary); text-decoration: none; }
+    .footer-links a:hover { color: var(--secondary); }
+
+    /* ── Responsive ────────────────────────────── */
+    @media (max-width: 860px) {
+      .features, .steps { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 720px) {
+      .hero, .split { grid-template-columns: 1fr; }
+      .hero .phone { order: -1; max-width: 220px; margin-bottom: 8px; }
+      .features, .steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-brand" href="/screentame/">
+        <img src="/assets/icon.png" alt="ScreenTame app icon" onerror="this.style.display='none'" />
+        <span>ScreenTame</span>
+      </a>
+      <a class="nav-parent" href="/">New Watch Co</a>
+    </div>
+  </nav>
+
+  <!-- ── Hero ─────────────────────────────────── -->
+  <div class="wrap">
+    <section class="hero">
+      <div>
+        <img class="hero-icon" src="/assets/icon.png" alt="ScreenTame app icon" onerror="this.style.display='none'" />
+        <h1>Tame your screen.<br /><em>Take back your time.</em></h1>
+        <p>
+          ScreenTame puts a deliberate pause between you and the apps that pull you away.
+          You choose the apps. You choose the limits. It holds you to them.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#features">See how it works</a>
+          <a class="btn btn-ghost" href="#privacy">Where your data goes</a>
+        </div>
+        <div class="status-line">
+          <span class="dot-amber"></span>
+          Coming to the App Store · iPhone · iOS 26+
+        </div>
+      </div>
+      <div class="phone">
+        <img src="/assets/shot-today.png" alt="ScreenTame Today screen showing a current streak, apps within limits, and app opens for the day" onerror="this.closest('.phone').style.display='none'" />
+      </div>
+    </section>
+  </div>
+
+  <!-- ── Features ─────────────────────────────── -->
+  <section class="band band-alt" id="features">
+    <div class="wrap">
+      <p class="eyebrow">What it does</p>
+      <h2 class="section-title">Friction where you <em>want</em> it</h2>
+      <p class="section-lead">
+        Most screen time tools report on you after the fact. ScreenTame steps in at the moment
+        you reach for the app — the only moment that actually changes anything.
+      </p>
+
+      <div class="features">
+        <div class="feature">
+          <div class="feature-ico">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Per-app open limits</h3>
+          <p>Set how many times a day you may open each app. Hit the limit and a shield appears in its place — not a notification you can swipe away.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-ico">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <h3>A pause, not a wall</h3>
+          <p>Every unlock costs a short wait before the app opens. Long enough to notice you're doing it, short enough that it never traps you out of something urgent.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-ico">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A3.5 3.5 0 0 0 12 21a3.5 3.5 0 0 0 3.5-6.5c0-3-2-4-2-7 0 0-4 2-4 5.5 0 1.5-1 2-1 1.5z"/></svg>
+          </div>
+          <h3>Per-app streaks</h3>
+          <p>Stay under every limit, on every enabled app, and the day counts. Break one and the streak resets. One clear rule, no partial credit.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-ico">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4"/><path d="M4 5h13l-2.5 4L17 13H4"/></svg>
+          </div>
+          <h3>Goals worth reaching</h3>
+          <p>Pick a target run — two weeks, six weeks — and name the reward you'll give yourself. ScreenTame tells you the day you've earned it.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-ico">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg>
+          </div>
+          <h3>Accountability partners</h3>
+          <p>Share a code with a friend and you can each see the other's streak. Knowing someone will notice is the oldest habit trick there is.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-ico">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M17 4h3v3a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V4h3"/><path d="M7 4h10v4a5 5 0 0 1-10 0z"/></svg>
+          </div>
+          <h3>Competitions</h3>
+          <p>The host sets the apps, the open limits and the session length, so everyone plays by the same rules. Competition limits override your personal ones while it runs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How it works ─────────────────────────── -->
+  <section class="band">
+    <div class="wrap">
+      <p class="eyebrow">How it works</p>
+      <h2 class="section-title">Three steps, then get on with your day</h2>
+      <p class="section-lead">Setup takes a couple of minutes. After that ScreenTame runs quietly in the background.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Choose your apps</h3>
+          <p>Pick the ones that actually cost you time. Apple's Screen Time picker keeps your choices private — even ScreenTame only ever sees an opaque token, never a list of what's on your phone.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Set the limits</h3>
+          <p>Opens per day and minutes per session, per app. Start generous. You can always tighten later — though loosening a limit does end that day's streak.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Build the streak</h3>
+          <p>Stay inside your limits and the day counts. Miss one and you start again tomorrow. That's the whole game.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Showcase ─────────────────────────────── -->
+  <section class="band band-alt">
+    <div class="wrap">
+      <div class="split">
+        <div class="phone">
+          <img src="/assets/shot-apps.png" alt="ScreenTame Tracked Apps screen listing Instagram, YouTube, TikTok and Twitter with daily open limits and per-session times" onerror="this.closest('.phone').style.display='none'" />
+        </div>
+        <div>
+          <p class="eyebrow">Tracked apps</p>
+          <h2 class="section-title">Every app on its <em>own</em> terms</h2>
+          <p class="section-lead" style="margin-bottom:22px;">
+            Instagram and your banking app should not share a budget. ScreenTame keeps a
+            separate allowance for each app you track, so a heavy afternoon on one doesn't
+            quietly spend the other's.
+          </p>
+          <p style="font-size:14.5px;color:var(--secondary);">
+            Toggle any app off when you genuinely need it — a confirmation tells you plainly
+            that doing so ends today's streak, so it's never a surprise.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Privacy ──────────────────────────────── -->
+  <section class="band" id="privacy">
+    <div class="wrap">
+      <div class="privacy-card">
+        <p class="eyebrow">Privacy</p>
+        <h2>Your screen time never leaves your phone</h2>
+        <p>
+          There is no ScreenTame account, no analytics and no advertising. The numbers that
+          would actually embarrass you — how often you open things, how long you stay,
+          every limit you've set — are written to your device and stay there.
+        </p>
+        <ul class="privacy-list">
+          <li><span class="tick">✓</span><span>Opens, limits, streaks, goals and your profile photo: on-device only.</span></li>
+          <li><span class="tick">✓</span><span>Nothing at all leaves your phone unless you add a partner or join a competition.</span></li>
+          <li><span class="tick">✓</span><span>If you do, only a display name you choose, a random friend code and your streak count are shared — enough for a leaderboard, nothing more.</span></li>
+          <li><span class="tick">✓</span><span>No trackers, no ad networks, no data sold to anyone, ever.</span></li>
+        </ul>
+        <p style="margin-top:22px;">
+          The full detail, including what the social features store and how to have it deleted,
+          is in the <a href="/privacy.html">Privacy Policy</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ──────────────────────────────────── -->
+  <section class="band band-alt">
+    <div class="wrap">
+      <p class="eyebrow">Questions</p>
+      <h2 class="section-title">Before you ask</h2>
+      <div style="max-width:720px;">
+        <details>
+          <summary>Can I just delete the app when the shield annoys me?</summary>
+          <p>Yes. ScreenTame is a tool for people who want the friction, not a lock you can't escape. It's deliberately not designed to trap anyone — if you no longer want it, uninstalling takes seconds and everything stored on your device goes with it.</p>
+        </details>
+        <details>
+          <summary>Does it show my total device screen time?</summary>
+          <p>No, and no third-party app can. iOS does not let outside apps read your overall screen time. ScreenTame reports on the apps you've chosen to track, which is the number you can actually act on anyway.</p>
+        </details>
+        <details>
+          <summary>What happens to my streak in a competition?</summary>
+          <p>While a competition runs, its limits take over from your personal ones for the apps it covers. If the competition is stricter than your own settings, meeting it also keeps your personal streak intact.</p>
+        </details>
+        <details>
+          <summary>Is it free?</summary>
+          <p>Yes — free, with every feature included. There's an optional tip jar if you'd like to support development, and that's the whole business model.</p>
+        </details>
+        <details>
+          <summary>Which devices does it work on?</summary>
+          <p>iPhone running iOS 26 or later. It relies on Apple's Family Controls and Device Activity frameworks, which is also why setup asks for Screen Time permission.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-copy">© <span id="yr"></span> New Watch Co Limited</span>
+      <nav class="footer-links">
+        <a href="/">New Watch Co</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
