@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join me on ScreenTame</title>
+  <meta name="description" content="Track your focus, build streaks, and compete with friends." />
+
+  <!-- Smart App Banner -->
+  <meta name="apple-itunes-app" content="app-id=6796650571, app-argument=https://newwatchco.com/join?code=CODE_PLACEHOLDER" />
+
+  <link rel="icon" href="/assets/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand: #6852e0; --brand-lt: #efecfd;
+      --bg: #faf9fe; --surface: #ffffff; --border: #e9e6f2;
+      --text: #14121f; --sub: #5c5870; --muted: #9a95ad;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg); color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh; display: flex; flex-direction: column;
+    }
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(250,249,254,0.88);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px; height: 56px; display: flex; align-items: center;
+    }
+    .logo {
+      font-size: 13px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text); text-decoration: none;
+    }
+    .hero {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 60px 24px 80px; text-align: center;
+    }
+    .app-icon {
+      width: 96px; height: 96px; border-radius: 22px;
+      margin: 0 auto 28px; display: block;
+      box-shadow: 0 8px 32px rgba(104,82,224,0.3);
+    }
+    h1 {
+      font-size: clamp(26px, 5vw, 38px); font-weight: 300;
+      letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 14px;
+    }
+    h1 em { font-style: normal; font-weight: 600; color: var(--brand); }
+    .sub-text {
+      font-size: 16px; color: var(--sub); max-width: 360px;
+      line-height: 1.7; margin: 0 auto 36px;
+    }
+    .invite-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 18px; padding: 28px 32px;
+      max-width: 380px; width: 100%; margin: 0 auto 32px;
+      text-align: left;
+    }
+    .invite-label {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 8px;
+    }
+    .inviter-row { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    .avatar {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--brand-lt);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 600; color: var(--brand);
+      flex-shrink: 0;
+    }
+    .inviter-name { font-size: 18px; font-weight: 600; }
+    .inviter-streak { font-size: 13px; color: var(--sub); margin-top: 2px; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 18px 0; }
+    .code-row {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--bg); border-radius: 10px; padding: 12px 14px;
+    }
+    .code-label { font-size: 12px; color: var(--muted); margin-bottom: 2px; }
+    .code-value {
+      font-size: 20px; font-weight: 600; letter-spacing: 0.08em;
+      color: var(--brand); font-variant-numeric: tabular-nums;
+    }
+    .copy-btn {
+      font-size: 12px; font-weight: 500; color: var(--brand);
+      background: none; border: 1px solid var(--brand);
+      border-radius: 7px; padding: 6px 12px; cursor: pointer;
+    }
+    .copy-btn:active { opacity: 0.7; }
+    .dl-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--brand); color: #fff;
+      font-size: 16px; font-weight: 500;
+      padding: 16px 36px; border-radius: 14px;
+      text-decoration: none; width: 100%; max-width: 380px;
+      transition: opacity 0.15s;
+    }
+    .dl-btn:hover { opacity: 0.88; }
+    .dl-btn svg { flex-shrink: 0; }
+    .footer-note { font-size: 12px; color: var(--muted); margin-top: 16px; }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px; text-align: center;
+      font-size: 12px; color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: none; margin: 0 10px; }
+  </style>
+</head>
+<body>
+
+  <nav><a class="logo" href="/screentame/">ScreenTame</a></nav>
+
+  <section class="hero">
+
+    <img class="app-icon" src="/assets/icon.png" alt="ScreenTame app icon" onerror="this.style.display='none'" />
+
+    <h1>Your friend wants to<br/>track focus with <em>you</em></h1>
+    <p class="sub-text">ScreenTame helps you build screen time habits, run focus streaks, and now — compete with friends.</p>
+
+    <div class="invite-card">
+      <p class="invite-label">Invited by</p>
+      <div class="inviter-row">
+        <div class="avatar" id="avatar-initials">J</div>
+        <div>
+          <div class="inviter-name" id="inviter-name">Your friend</div>
+          <div class="inviter-streak" id="inviter-streak"></div>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <div class="code-row">
+        <div>
+          <div class="code-label">Friend code</div>
+          <div class="code-value" id="friend-code">—</div>
+        </div>
+        <button class="copy-btn" onclick="copyCode()">Copy</button>
+      </div>
+    </div>
+
+    <a class="dl-btn" href="https://apps.apple.com/app/id6796650571" id="dl-link">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+      </svg>
+      Download ScreenTame
+    </a>
+
+    <p class="footer-note" id="already-note" style="display:none;">
+      Already have the app? <a href="#" id="open-app-link" style="color:var(--brand);">Open it here →</a>
+    </p>
+
+    <p class="footer-note">Free on the App Store · iPhone · iOS 26+</p>
+
+  </section>
+
+  <footer>
+    <a href="/screentame/">ScreenTame</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/privacy.html">Privacy</a>
+    <span>© <span id="yr"></span> New Watch Co Limited</span>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    const params = new URLSearchParams(window.location.search);
+    const code   = params.get('code') || '';
+    const name   = params.get('name') || 'Your friend';
+    const streak = params.get('streak') || '';
+    const type   = params.get('type') || '';
+    const isComp = type === 'comp';
+
+    if (isComp) {
+      document.querySelector('h1').innerHTML = 'You\'ve been invited to a <em>competition</em>';
+      document.querySelector('.sub-text').textContent =
+        'Join the competition on ScreenTame — same app limits, same start date. Everyone competes from day one.';
+      document.querySelector('.invite-label').textContent = 'Competition';
+      document.getElementById('inviter-name').textContent = name || 'A competition';
+      document.getElementById('avatar-initials').textContent = '🏆';
+      document.querySelector('.avatar').style.fontSize = '24px';
+      document.querySelector('.code-label').textContent = 'Join code';
+    }
+
+    if (code) {
+      document.getElementById('friend-code').textContent = code;
+      const deepLink = isComp
+        ? 'screentame://join?code=' + encodeURIComponent(code) + '&type=comp'
+        : 'screentame://join?code=' + encodeURIComponent(code);
+      document.getElementById('open-app-link').href = deepLink;
+      document.getElementById('already-note').style.display = 'block';
+      document.getElementById('dl-link').href =
+        'https://apps.apple.com/app/id6796650571?ct=' + (isComp ? 'compinvite' : 'friendinvite') + '&mt=8';
+      const aasa = document.querySelector('meta[name="apple-itunes-app"]');
+      if (aasa) aasa.setAttribute('content',
+        'app-id=6796650571, app-argument=' + encodeURIComponent(window.location.href));
+    }
+
+    if (!isComp) {
+      if (name && name !== 'Your friend') {
+        document.getElementById('inviter-name').textContent = name;
+        document.getElementById('avatar-initials').textContent =
+          name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+      }
+      if (streak) {
+        document.getElementById('inviter-streak').textContent = '🔥 ' + streak + '-day streak';
+      }
+    }
+
+    function copyCode() {
+      navigator.clipboard.writeText(code).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = 'Copy', 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
