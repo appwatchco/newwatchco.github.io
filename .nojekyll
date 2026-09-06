@@ -1,0 +1,1 @@
+Disables Jekyll so dot-prefixed paths such as .well-known/ are published.
