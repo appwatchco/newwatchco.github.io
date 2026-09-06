@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["U6J5NLUNU8.com.newwatchco.screentame"],
+        "components": [
+          {
+            "/": "/join*",
+            "comment": "Friend invite links"
+          }
+        ]
+      }
+    ]
+  }
+}
