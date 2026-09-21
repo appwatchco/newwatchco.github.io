@@ -10,10 +10,10 @@
   <meta property="og:description" content="Per-app open limits, focus streaks, and accountability with friends. Your screen time data never leaves your iPhone." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://newwatchco.com/screentame/" />
-  <meta property="og:image" content="https://newwatchco.com/assets/icon.png" />
+  <meta property="og:image" content="https://newwatchco.com/assets/mascot@3x.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="icon" href="/assets/icon.png" />
+  <link rel="icon" href="/assets/mascot@3x.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -222,6 +222,12 @@
       .hero .phone { order: -1; max-width: 220px; margin-bottom: 8px; }
       .features, .steps { grid-template-columns: 1fr; }
     }
+    .hero-mascot { width: min(100%, 420px); height: auto; justify-self: center; }
+    .promo-gallery { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+    .promo-gallery a { display: block; border-radius: 20px; overflow: hidden; }
+    .promo-gallery img { display: block; width: 100%; height: auto; }
+    .promo-gallery a:focus-visible { outline: 3px solid var(--brand); outline-offset: 4px; }
+    @media (max-width: 760px) { .promo-gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 16px; } .promo-gallery a { flex: 0 0 75%; max-width: 320px; scroll-snap-align: start; } }
   </style>
 </head>
 <body>
@@ -229,7 +235,7 @@
   <nav>
     <div class="nav-inner">
       <a class="nav-brand" href="/screentame/">
-        <img src="/assets/icon.png" alt="ScreenTame app icon" onerror="this.style.display='none'" />
+        <img src="/assets/mascot@3x.png" alt="ScreenTame mascot" onerror="this.style.display='none'" />
         <span>ScreenTame</span>
       </a>
       <a class="nav-parent" href="/">New Watch Co</a>
@@ -240,7 +246,6 @@
   <div class="wrap">
     <section class="hero">
       <div>
-        <img class="hero-icon" src="/assets/icon.png" alt="ScreenTame app icon" onerror="this.style.display='none'" />
         <h1>Tame your screen.<br /><em>Take back your time.</em></h1>
         <p>
           ScreenTame puts a deliberate pause between you and the apps that pull you away.
@@ -255,11 +260,23 @@
           Coming to the App Store · iPhone
         </div>
       </div>
-      <div class="phone">
-        <img src="/assets/shot-today.png" alt="ScreenTame Today screen showing a current streak, apps within limits, and app opens for the day" onerror="this.closest('.phone').style.display='none'" />
-      </div>
+      <img class="hero-mascot" src="/assets/mascot@3x.png" alt="ScreenTame mascot holding a heart" width="840" height="840" />
     </section>
   </div>
+
+  <section class="band promo-section" aria-label="ScreenTame in pictures">
+    <div class="wrap">
+      <p class="eyebrow">Meet ScreenTame</p>
+      <h2 class="section-title">Small steps. A calmer you.</h2>
+      <div class="promo-gallery">
+        <a href="/assets/01-introduction.png" aria-label="View infographic: Tame your screen. Take back your time."><img src="/assets/01-introduction.png" alt="Tame your screen. Take back your time." width="1320" height="2868" loading="lazy" /></a>
+        <a href="/assets/02-app-limits.png" aria-label="View infographic: Set limits. Block distractions."><img src="/assets/02-app-limits.png" alt="Set limits. Block distractions." width="1320" height="2868" loading="lazy" /></a>
+        <a href="/assets/03-progress.png" aria-label="View infographic: Track progress. Stay consistent."><img src="/assets/03-progress.png" alt="Track progress. Stay consistent." width="1320" height="2868" loading="lazy" /></a>
+        <a href="/assets/04-accountability-last-person-standing.png" aria-label="View infographic: Accountability together. Last Person Standing competition."><img src="/assets/04-accountability-last-person-standing.png" alt="Accountability together. Last Person Standing competition." width="1320" height="2868" loading="lazy" /></a>
+        <a href="/assets/05-calmer-habits.png" aria-label="View infographic: Less screen time. A brighter you."><img src="/assets/05-calmer-habits.png" alt="Less screen time. A brighter you." width="1320" height="2868" loading="lazy" /></a>
+      </div>
+    </div>
+  </section>
 
   <!-- ── Features ─────────────────────────────── -->
   <section class="band band-alt" id="features">
@@ -355,7 +372,7 @@
     <div class="wrap">
       <div class="split">
         <div class="phone">
-          <img src="/assets/shot-apps.png" alt="ScreenTame Tracked Apps screen listing Instagram, YouTube, TikTok and Twitter with daily open limits and per-session times" onerror="this.closest('.phone').style.display='none'" />
+          <img src="/assets/02-app-limits.png" alt="Set limits. Block distractions. ScreenTame app limits infographic" onerror="this.closest('.phone').style.display='none'" />
         </div>
         <div>
           <p class="eyebrow">Tracked apps</p>
