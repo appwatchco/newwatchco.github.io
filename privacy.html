@@ -82,10 +82,10 @@
   <div class="legal-wrap">
     <span class="legal-eyebrow">Legal</span>
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: September 2026</p>
+    <p class="updated">Last updated: 21 September 2026</p>
 
     <div class="highlight-box">
-      <p><strong>The short version:</strong> Your screen time data — how often you open apps, your limits, your streaks — stays on your device. We never see it. The one exception is the optional social features: if you add an accountability partner or join a competition, your chosen display name, streak count and competition scores are stored in Apple's iCloud so those people can see them. You can use ScreenTame entirely without ever turning those on. We run no analytics and no advertising, and we never sell anything to anyone.</p>
+      <p><strong>The short version:</strong> ScreenTame stores your personal blocking setup and detailed usage history on your device. Optional code-based accountability buddies share your chosen nickname, friend code, current streak and connected/blocked buddy codes in Apple's public CloudKit database. These social records can be accessed by other ScreenTame users, not just your buddies. Competitions also share their details and scores. Code sharing is optional and requires an in-app agreement; no email or password is required. We use no advertising or marketing analytics and do not sell your data.</p>
     </div>
 
     <h2>1. Who We Are</h2>
@@ -102,19 +102,20 @@
       <li>Your streak history and daily records</li>
       <li>Your goals and the rewards you set yourself</li>
       <li>Your profile photo, if you add one — this is saved only on your device and is never uploaded, so other people never see it</li>
-      <li>Your email address, if you create an account</li>
+      <li>Any email saved in a local profile by an older version; current profiles require only a display name, not an email or password</li>
     </ul>
 
     <p><strong>Leaves your device — only if you use the social features:</strong></p>
-    <p>ScreenTame's accountability partners and competitions need to show your progress to the people you are competing with. That is only possible if some information is shared. If — and only if — you add a partner or join or create a competition, the following is written to a database in Apple's iCloud (CloudKit) operated under our developer account:</p>
+    <p>When you choose Agree &amp; enable code sharing, or use competitions, relevant social information is stored in Apple's CloudKit under our developer account. Code sharing uses the iCloud account already signed in on your device. It connects two buddies when either enters the other's code; each person's app discovers both incoming and outgoing connections. The shared information includes:</p>
     <ul>
       <li><strong>Your display name</strong> — the name you choose in the app. It does not have to be your real name.</li>
-      <li><strong>Your friend code</strong> — a short random code used to connect accounts</li>
+      <li><strong>Your friend code</strong> — a short code used to connect buddies. It is not a password or a guarantee of private access. Only send it to people you want to connect with.</li>
+      <li><strong>Your buddy relationships</strong> — codes you have added and removed/blocked, plus an indicator that code sharing is enabled. We do not request access to your phone's contacts or upload your address book.</li>
       <li><strong>Your current streak</strong>, and for competitions your total opens, competition streak, and whether you have been eliminated</li>
       <li><strong>Competition details</strong> you create — the competition name, join code, limits, and the codes of its members</li>
     </ul>
     <p>Please be aware that this information is held in a <strong>public CloudKit database</strong>. It is readable by other users of ScreenTame, not only by the people you have added. Do not use a display name you would not want other users to see. We can also see this information in Apple's CloudKit dashboard.</p>
-    <p>We never upload your screen time figures, your app list, your limits, your photo, or your email to iCloud or anywhere else. If you never use the social features, nothing about you is stored off your device at all.</p>
+    <p>The buddy-code feature does not upload your photo, email, personal app selections or detailed app-use history. Competitions separately share the competition's selected app names/limits and aggregate scores as described above. Existing private invitations from version 1.0 build 30 remain in Apple's private/shared CloudKit scopes and are not converted into public code relationships. Apple maintains the participant identity metadata for those private shares.</p>
 
     <p><strong>On this website (newwatchco.com):</strong></p>
     <p>We do not use cookies, analytics, or tracking of any kind. The website is hosted on GitHub Pages, which may process your IP address solely to serve the page — see <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub's Privacy Statement</a>. The site loads fonts from Google Fonts, which may log your IP address — see <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
@@ -122,19 +123,19 @@
     <h2>3. Legal Basis for Processing (UK &amp; EU GDPR)</h2>
     <p>Where we process any personal data, we rely on the following legal bases under UK GDPR and EU GDPR:</p>
     <ul>
-      <li><strong>Consent</strong> — for the social features. Sharing your display name and streak happens only because you chose to add a partner or join a competition. You can withdraw consent at any time by leaving, as described in section 5.</li>
+      <li><strong>Consent</strong> — for the social features. In build 31 and later, code sharing starts after you agree to the in-app notice about public social records. Previously saved code buddies may then be carried forward; private shares are not converted. You can withdraw code-sharing consent and delete your buddy profile in Friends, as described in section 5. Competition sharing is a separate choice.</li>
       <li><strong>Legitimate interests</strong> — to provide, maintain, and improve our apps and website.</li>
       <li><strong>Contract performance</strong> — to fulfil purchases made through the App Store.</li>
       <li><strong>Legal obligation</strong> — where required to comply with applicable law.</li>
     </ul>
 
     <h2>4. Apple and Third-Party Frameworks</h2>
-    <p>ScreenTame uses Apple's Screen Time, Family Controls, StoreKit and CloudKit frameworks, and offers Sign in with Apple. Data processed by these frameworks is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>. Apple handles all payment processing for tips; we never receive your card details or billing information. If you use Sign in with Apple you may choose to hide your email address, and we will only ever receive Apple's relay address.</p>
+    <p>ScreenTame uses Apple's Screen Time, Family Controls, StoreKit and CloudKit frameworks. Data Apple processes is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>. Apple handles payments for tips; we never receive your card details. Current app setup creates a device-local profile, not a password-protected online account or a cloud backup.</p>
     <p>We use no analytics, advertising, tracking or third-party marketing services of any kind, and we do not sell or share your data with anyone for their own purposes.</p>
 
     <h2>5. Data Retention and Deletion</h2>
     <p><strong>On your device:</strong> everything stored locally is under your control and is removed entirely when you delete the app.</p>
-    <p><strong>In iCloud:</strong> your display name, friend code and streak are kept for as long as you use the social features. Competition records are kept for the life of the competition. If you want this removed, you can leave any competitions and remove your accountability partners in the app, or email us at <a href="mailto:james@newwatchco.com">james@newwatchco.com</a> and we will delete your records — tell us your friend code so we can find them. We will action deletion requests within 30 days.</p>
+    <p><strong>In iCloud:</strong> In Friends, use <em>Turn off code sharing &amp; delete buddy profile</em> to delete your public buddy profile, nickname, streak and outgoing/blocked code lists. Other users' records may still reference your code, but your deleted profile is no longer available. Removing/blocking a buddy prevents that connection from appearing on the updated app's boards; it does not make public records private or erase copies someone already obtained. Competition records and private shares are separate: leave competitions or remove private connections in the app. For remaining records, legacy data, or help with deletion, email <a href="mailto:james@newwatchco.com">james@newwatchco.com</a> with your friend code; we will verify ownership before actioning the request and respond within 30 days. Records persist until removed; we do not promise automatic deletion when a competition ends.</p>
     <p>Deleting the app does not by itself remove records already written to iCloud, so contact us if you want them erased.</p>
 
     <h2>6. Your Rights Under UK &amp; EU GDPR</h2>
@@ -163,7 +164,7 @@
     <p>Our apps are rated 17+ on the App Store and are not directed at children under 13. We do not knowingly collect personal data from children. If Family Controls features are used, this requires authorisation from a parent or legal guardian.</p>
 
     <h2>10. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. We will update the "Last updated" date at the top of this page when changes are made. Continued use of the App or website after changes are posted constitutes acceptance of the revised policy.</p>
+    <p>We may update this Privacy Policy from time to time. We will update the "Last updated" date at the top of this page when changes are made. Where a change requires new consent, we will request it in the app before enabling that sharing.</p>
 
     <h2>11. Contact Us</h2>
     <p>New Watch Co Limited<br />
