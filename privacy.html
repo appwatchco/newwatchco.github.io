@@ -82,7 +82,7 @@
   <div class="legal-wrap">
     <span class="legal-eyebrow">Legal</span>
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: 6 October 2026</p>
+    <p class="updated">Last updated: 16 October 2026</p>
 
     <div class="highlight-box">
       <p><strong>The short version:</strong> ScreenTame stores your personal blocking setup and detailed usage history on your device. Optional code-based accountability buddies share your chosen nickname, friend code, current streak and connected/blocked buddy codes in Apple's public CloudKit database. These social records can be accessed by other ScreenTame users, not just your buddies. Competitions also share their details and scores. Code sharing is optional and requires an in-app agreement; no email or password is required. We use no advertising or marketing analytics and do not sell your data.</p>
@@ -111,8 +111,8 @@
       <li><strong>Your display name</strong> — the name you choose in the app. It does not have to be your real name.</li>
       <li><strong>Your friend code</strong> — a short code used to connect buddies. It is not a password or a guarantee of private access. Only send it to people you want to connect with.</li>
       <li><strong>Your buddy relationships</strong> — codes you have added and removed/blocked, plus an indicator that code sharing is enabled. We do not request access to your phone's contacts or upload your address book.</li>
-      <li><strong>Your current streak</strong>, and for competitions your total opens, competition streak, and whether you have been eliminated</li>
-      <li><strong>Competition details</strong> you create — the competition name, join code, limits, and the codes of its members</li>
+      <li><strong>Your current accountability streak</strong>, and for competitions aggregate opens (including today's running total), completed-day totals, competition streak, elimination/forfeit status and sync timestamps. Fixed-date competitions also store a final score snapshot for the end date so the result can be calculated after devices sync. These are summary scores, not a log of individual app-opening times or session activity.</li>
+      <li><strong>Competition details</strong> you create — the competition name, join code, selected app names and limits, mode, start/end dates, status, and the codes of its members</li>
       <li><strong>Social notifications and results</strong> — competition forfeits, final results and buddy streak-loss messages, with sender/recipient friend codes and timestamps. These records use the same public CloudKit database. Apple delivers push notifications when permitted; delivery timing is not guaranteed. Recent updates are also kept on your device.</li>
     </ul>
     <p>Please be aware that this information is held in a <strong>public CloudKit database</strong>. It is readable by other users of ScreenTame, not only by the people you have added. Do not use a display name you would not want other users to see. We can also see this information in Apple's CloudKit dashboard.</p>
@@ -132,12 +132,13 @@
 
     <h2>4. Apple and Third-Party Frameworks</h2>
     <p>ScreenTame uses Apple's Screen Time, Family Controls, StoreKit and CloudKit frameworks. Data Apple processes is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>. Apple handles payments for tips; we never receive your card details. Current app setup creates a device-local profile, not a password-protected online account or a cloud backup.</p>
-    <p>We use no analytics, advertising, tracking or third-party marketing services of any kind, and we do not sell or share your data with anyone for their own purposes.</p>
+    <p>We use no analytics, advertising, tracking or third-party marketing services and do not sell your data. Optional social information is shared as described above; it is not private to your friends.</p>
+    <p>Social scores and alerts depend on devices syncing with iCloud. Pulling to refresh fetches the latest available records; it cannot obtain activity that another device has not uploaded. Shield summaries may show cached scores. Final results can wait for participants' final score snapshots, and push notifications may be delayed or unavailable because of connectivity, permissions or iOS background restrictions.</p>
 
     <h2>5. Data Retention and Deletion</h2>
     <p><strong>On your device:</strong> everything stored locally is under your control and is removed entirely when you delete the app.</p>
     <p><strong>Competition withdrawals:</strong> in build 39 and later, leaving a competition records a forfeit rather than deleting your membership, so the result remains accurate for the other players. Competition results and social-notification records remain until removed. Contact us using your friend code to request deletion of these records; leaving a competition or deleting a buddy profile does not erase historical notifications.</p>
-    <p><strong>In iCloud:</strong> In Friends, use <em>Turn off code sharing &amp; delete buddy profile</em> to delete your public buddy profile, nickname, streak and outgoing/blocked code lists. Other users' records may still reference your code, but your deleted profile is no longer available. Removing/blocking a buddy prevents that connection from appearing on the updated app's boards; it does not make public records private or erase copies someone already obtained. Competition records and private shares are separate: leave competitions or remove private connections in the app. For remaining records, legacy data, or help with deletion, email <a href="mailto:james@newwatchco.com">james@newwatchco.com</a> with your friend code; we will verify ownership before actioning the request and respond within 30 days. Records persist until removed; we do not promise automatic deletion when a competition ends.</p>
+    <p><strong>In iCloud:</strong> In Friends → Accountability, open <em>Add a buddy</em> (the person-plus button in newer versions), then use <em>Turn off code sharing &amp; delete buddy profile</em>. In older versions this option appears directly on the Accountability page. This deletes your public buddy profile, nickname, streak and outgoing/blocked code lists. Other users' records may still reference your code, but your deleted profile is no longer available. Removing/blocking a buddy prevents that connection from appearing on the updated app's boards; it does not make public records private or erase copies someone already obtained. Competition records and private shares are separate: leave competitions or remove private connections in the app. For remaining records, legacy data, or help with deletion, email <a href="mailto:james@newwatchco.com">james@newwatchco.com</a> with your friend code; we will verify ownership before actioning the request and respond within 30 days. Records persist until removed; we do not promise automatic deletion when a competition ends.</p>
     <p>Deleting the app does not by itself remove records already written to iCloud, so contact us if you want them erased.</p>
 
     <h2>6. Your Rights Under UK &amp; EU GDPR</h2>
@@ -149,7 +150,7 @@
       <li><strong>Right to restriction</strong> — to request that we restrict processing of your data.</li>
       <li><strong>Right to data portability</strong> — to receive your data in a structured, machine-readable format.</li>
       <li><strong>Right to object</strong> — to object to processing based on legitimate interests.</li>
-      <li><strong>Rights related to automated decision-making</strong> — we do not carry out automated decision-making or profiling.</li>
+      <li><strong>Rights related to automated decision-making</strong> — the app automatically calculates streaks, competition standings and results. We do not use these scores to make decisions with legal or similarly significant effects on you.</li>
     </ul>
     <p>To exercise any of these rights, contact us at <a href="mailto:james@newwatchco.com">james@newwatchco.com</a>. We will respond within 30 days.</p>
 
@@ -160,7 +161,7 @@
     <p>If you are based in the EU, you may contact your local Data Protection Authority.</p>
 
     <h2>8. International Transfers</h2>
-    <p>Your on-device data is not transferred anywhere. Where you use the social features, your display name, friend code and streak are stored in Apple's iCloud, which operates data centres in multiple countries including the United States — see <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>. Our website is hosted on GitHub's servers (US-based). Both Apple and GitHub maintain Standard Contractual Clauses for EU/UK data transfers.</p>
+    <p>ScreenTame does not upload your detailed on-device history. Where you use social features, the social information listed in section 2 is stored in Apple's iCloud, which operates data centres in multiple countries including the United States — see <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>. Our website is hosted on GitHub's servers (US-based). Both Apple and GitHub maintain Standard Contractual Clauses for EU/UK data transfers.</p>
 
     <h2>9. Children's Privacy</h2>
     <p>Check ScreenTame's App Store listing for the age rating applicable to your region and operating system. ScreenTame requests individual Screen Time authorisation for self-management; this is not a blanket requirement for parental authorisation. Apple may impose additional restrictions for child accounts. Optional public social features are not intended for children under 13. Do not include personal details in nicknames or competition names. If you believe a child has shared personal information, contact us to request its removal.</p>
